@@ -1,7 +1,9 @@
 <?php
 
+//define('PORTAL_DONT_USE_ERROR_HANDLER', TRUE);
+
 // load the portal
-include('portal/PortalLoader.php');
-\psm\newPortal('wa');
+include('portal/portal.php');
+$portal = new \psm\portal('wa');
 
 ?>
