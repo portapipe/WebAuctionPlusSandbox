@@ -4,12 +4,24 @@ if(!defined('PORTAL_INDEX_FILE')){if(headers_sent()){echo '<header><meta http-eq
 define('WA_VERSION', '1.2.0');
 
 
+
+\psm\ClassLoader::registerClassPath('wa', __DIR__.DIR_SEP.'classes');
+
+//\psm\Page::addPath(__DIR__.'/pages');
+
+
 // load config.php
 $config = \psm\config::loadConfig('config.php');
 
 //throw new \Exception('Division by zero.');
 $users = \psm\users::loadUsers();
-echo 'works!!!';
+//echo 'works!!!';
+
+
+$portal = \psm\portal::getPortal();
+$portal->genericRender();
+
+//\psm\page::LoadPage($portal->getPage());
 
 
 ?>
