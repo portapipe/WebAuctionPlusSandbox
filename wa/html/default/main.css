@@ -74,3 +74,40 @@ footer .container table {
 		padding-right: 20px;
 	}
 }
+
+
+input {
+	padding-top:    3px;
+	padding-bottom: 3px;
+}
+.button {
+	padding-top:    2px;
+	padding-bottom: 2px;
+}
+label {
+	font-size:   large;
+}
+label,
+.ui-button,
+input,
+.button {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+input,
+.button:link {
+	color: #002288;
+	background-color: #FAFFBD;
+	text-decoration:  none;
+}
+input:hover,
+.button:hover {
+	color: #000000;
+	background-color: #CFD3FD;
+	text-decoration:  none;
+}
+input:active,
+.button:active {
+	color: #FF0000;
+	background-color: #DAD8FE;
+	text-decoration:  underline;
+}
