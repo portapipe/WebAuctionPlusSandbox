@@ -4,30 +4,20 @@ class page_home extends \psm\Page {
 
 
 	public function Render() {
-		$table = new \psm\datatables_Table(
-			array(
-				'Item',
-				'Seller',
-				'Expires',
-				'Price (Each)',
-				'Price (Total)',
-				'Market Value',
-				'Qty',
-				'Buy',
-			)
+		$headings = array(
+			'Item',
+			'Seller',
+			'Expires',
+			'Price (Each)',
+			'Price (Total)',
+			'Market Value',
+			'Qty',
+			'Buy',
 		);
-for($i=0;$i<1000;$i++)
-		$table->addRow(
-			array(
-				'item '.$i,
-				'seller '.$i,
-				'expires',
-				'price each',
-				'price total',
-				'market value',
-				'qty',
-				'<a href="">More Options</a>',
-			)
+		$table = new \psm\datatables_Table(
+			$headings,
+			new home_Query(),
+			FALSE
 		);
 		return 'HOME'.$table->Render();
 	}
@@ -40,14 +30,34 @@ for($i=0;$i<1000;$i++)
 }
 class home_Query extends \psm\datatables_Query {
 
+	private $rows = array();
 
-	public function QueryForTable() {
-		return array(
-			array('a'),
-			array('a'),
-			array('a'),
-			array('a'),
+
+	public function runQuery() {
+//		$rows[] = array(
+//			array('a'),
+//			array('a'),
+//			array('a'),
+//			array('a'),
+//		);
+for($i=0;$i<1000;$i++)
+		$this->rows[] = array(
+			'item '.$i,
+			'seller '.$i,
+			'expires',
+			'price each',
+			'price total',
+			'market value',
+			'qty',
+			'<a href="">More Options</a>',
 		);
+		reset($this->rows);
+		return TRUE;
+	}
+
+
+	public function getRow() {
+		return next($this->rows);
 	}
 
 
